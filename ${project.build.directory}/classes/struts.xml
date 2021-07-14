@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+		"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+
+	<package name="struts2" extends="struts-default" namespace="/">
+		<action name="" class="com.hbwl.action/ChapterAction"  method="findAll">
+			<result>/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<action name="index" class="com.hbwl.action/ChapterAction"  method="findAll">
+			<result>/WEB-INF/jsp/index.jsp</result>
+		</action>
+		<action name="about">
+			<result>/WEB-INF/jsp/about.jsp</result>
+		</action>
+		<action name="mood" class="com.hbwl.action/AnnoAction"  method="findAll">
+			<result>/WEB-INF/jsp/mood.jsp</result>
+		</action>
+		<action name="article" class="com.hbwl.action/ChapterAction"  method="findAll">
+			<result>/WEB-INF/jsp/article.jsp</result>
+		</action>
+		<action name="article_detail" class="com.hbwl.action.ChapterAction" method="findId">
+			<result>/WEB-INF/jsp/article_detail.jsp</result>
+		</action>
+		<action name="board" class="com.hbwl.action.MessageAction" method="findAll">
+			<result>/WEB-INF/jsp/board.jsp</result>
+		</action>
+	</package>
+	<package name="user" extends="struts-default" namespace="/user">
+		<action name="index">
+			<result>/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+		<action name="login">
+			<result>/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="article" class="com.hbwl.action.ChapterAction" method="findAll">
+			<result>/WEB-INF/jsp/admin/article.jsp</result>
+		</action>
+		<action name="notice" class="com.hbwl.action.AnnoAction" method="findAll">
+			<result>/WEB-INF/jsp/admin/notice.jsp</result>
+		</action>
+		<action name="comment" class="com.hbwl.action.CommentAction" method="findAll">
+			<result>/WEB-INF/jsp/admin/comment.jsp</result>
+		</action>
+
+		<action name="message" class="com.hbwl.action.MessageAction" method="findAll">
+			<result>/WEB-INF/jsp/admin/message.jsp</result>
+		</action>
+		<action name="category" class="com.hbwl.action.CategoryAction" method="findAll">
+			<result>/WEB-INF/jsp/admin/category.jsp</result>
+		</action>
+		<action name="flink">
+			<result>/WEB-INF/jsp/admin/flink.jsp</result>
+		</action>
+		<action name="loginlog">
+			<result>/WEB-INF/jsp/admin/loginlog.jsp</result>
+		</action>
+		<action name="manage-user">
+			<result>/WEB-INF/jsp/admin/manage-user.jsp</result>
+		</action>
+		<action name="setting">
+			<result>/WEB-INF/jsp/admin/setting.jsp</result>
+		</action>
+		<action name="readset">
+			<result>/WEB-INF/jsp/admin/readset.jsp</result>
+		</action>
+		<action name="doLogin" class="com.hbwl.action.UserAction" method="doLogin">
+			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+	</package>
+
+	<package name="chapter" extends="struts-default" namespace="/chapter">
+		<action name="index">
+			<result>/WEB-INF/jsp/admin/add-article.jsp</result>
+		</action>
+		<action name="save" class="com.hbwl.action.ChapterAction" method="save">
+			<result name="success">/WEB-INF/jsp/admin/add-article.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="del" class="com.hbwl.action.ChapterAction" method="del">
+			<result name="success">/WEB-INF/jsp/admin/article.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="upDateIndex" class="com.hbwl.action.ChapterAction" method="findId">
+			<result name="success">/WEB-INF/jsp/admin/update-article.jsp</result>
+		</action>
+		<action name="upDate" class="com.hbwl.action.ChapterAction" method="upData">
+			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+		<action name="findAll" class="com.hbwl.action.ChapterAction" method="findAll">
+			<result name="success">/WEB-INF/jsp/admin/article.jsp</result>
+		</action>
+	</package>
+
+	<package name="comment" extends="struts-default" namespace="/comment">
+
+		<action name="del" class="com.hbwl.action.CommentAction" method="del">
+			<result name="success">/WEB-INF/jsp/admin/comment.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="findAll" class="com.hbwl.action.CommentAction" method="findAll">
+			<result name="success">/WEB-INF/jsp/admin/comment.jsp</result>
+		</action>
+		<action name="seeIndex" class="com.hbwl.action.CommentAction" method="findId">
+			<result name="success">/WEB-INF/jsp/admin/update-comment.jsp</result>
+		</action>
+	</package>
+
+	<package name="message" extends="struts-default" namespace="/message">
+		<action name="save" class="com.hbwl.action.MessageAction" method="save">
+			<result name="success">/WEB-INF/jsp/board.jsp</result>
+		</action>
+		<action name="del" class="com.hbwl.action.MessageAction" method="del">
+			<result name="success">/WEB-INF/jsp/admin/message.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="findAll" class="com.hbwl.action.MessageAction" method="findAll">
+			<result name="success">/WEB-INF/jsp/admin/message.jsp</result>
+		</action>
+		<action name="seeIndex" class="com.hbwl.action.MessageAction" method="findId">
+			<result name="success">/WEB-INF/jsp/admin/update-message.jsp</result>
+		</action>
+	</package>
+
+
+	<package name="notice" extends="struts-default" namespace="/notice">
+		<action name="index">
+			<result>/WEB-INF/jsp/admin/add-notice.jsp</result>
+		</action>
+		<action name="save" class="com.hbwl.action.AnnoAction" method="save">
+			<result name="success">/WEB-INF/jsp/admin/add-notice.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="del" class="com.hbwl.action.AnnoAction" method="del">
+			<result name="success">/WEB-INF/jsp/admin/notice.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="upDateIndex" class="com.hbwl.action.AnnoAction" method="findId">
+			<result name="success">/WEB-INF/jsp/admin/update-notice.jsp</result>
+		</action>
+
+		<action name="test" class="com.hbwl.action.AnnoAction" method="upData">
+			<result name="success">/WEB-INF/jsp/admin/update-notice.jsp</result>
+		</action>
+
+		<action name="findAll" class="com.hbwl.action.AnnoAction" method="findAll">
+			<result name="success">/WEB-INF/jsp/admin/notice.jsp</result>
+		</action>
+	</package>
+
+	<package name="category" extends="struts-default" namespace="/category">
+		<action name="index">
+			<result>/WEB-INF/jsp/admin/add-article.jsp</result>
+		</action>
+		<action name="save" class="com.hbwl.action.CategoryAction" method="save">
+			<result name="success">/WEB-INF/jsp/admin/category.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="del" class="com.hbwl.action.CategoryAction" method="del">
+			<result name="success">/WEB-INF/jsp/admin/category.jsp</result>
+			<result name="fail">/WEB-INF/jsp/admin/login.jsp</result>
+		</action>
+		<action name="upDateIndex" class="com.hbwl.action.CategoryAction" method="findId">
+			<result name="success">/WEB-INF/jsp/admin/update-category.jsp</result>
+		</action>
+		<action name="upDate" class="com.hbwl.action.CategoryAction" method="upData">
+			<result name="success">/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+		<action name="findAll" class="com.hbwl.action.CategoryAction" method="findAll">
+			<result name="success">/WEB-INF/jsp/admin/category.jsp</result>
+		</action>
+	</package>
+</struts>
